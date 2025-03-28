@@ -1,23 +1,193 @@
-﻿@page
+@page
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="jumbotron">
-    <h1>.NET 💜 Azure</h1>
-    <p class="lead">This is a sample .NET app to Azure App Service <--> check web app creation.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet"> <!-- Link to your custom style.css -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-home me-2"></i>Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Privacy">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Error">Error Handling</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://learn.microsoft.com/aspnet/core" target="_blank">Docs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-     <p>Visit our documentation:</p>
- <ul>
-     <li><a href="/Error" class="nav-link">Error Handling Documentation</a></li>
-     <li><a href="/Privacy" class="nav-link">Privacy Policy</a></li>
-     <li><a href="https://learn.microsoft.com/aspnet/core" target="_blank" class="nav-link">ASP.NET Core Official Docs</a></li>
- </ul>
-    <p><a href="/Trigger500" class="btn btn-danger">Trigger 500 Error</a></p>
+    <div class="main-container">
+        <div class="jumbotron text-center fade-in">
+            <h1 class="display-4">
+                <span>.NET</span> <i class="fas fa-heart"></i> <span>Azure</span>
+            </h1>
+            <p class="lead">This is a sample .NET app to Azure App Service ↔ check web app creation.</p>
+            <a href="https://learn.microsoft.com/aspnet/core" class="btn btn-light" target="_blank">
+                <i class="fas fa-book me-2"></i>Learn ASP.NET Core
+            </a>
+        </div>
 
-</div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">Welcome to our Application</h2>
+                        <p class="text-muted mb-4">Explore our features and documentation:</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-exclamation-triangle me-2 text-warning"></i>
+                                    Error Handling Documentation
+                                </div>
+                                <a href="/Error" class="badge bg-primary rounded-pill">Learn</a>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-shield-alt me-2 text-success"></i>
+                                    Privacy Policy
+                                </div>
+                                <a href="/Privacy" class="badge bg-primary rounded-pill">Read</a>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-book me-2 text-info"></i>
+                                    ASP.NET Core Official Docs
+                                </div>
+                                <a href="https://learn.microsoft.com/aspnet/core" target="_blank" class="badge bg-primary rounded-pill">Visit</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">Quick Actions</h2>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#errorModal">
+                                <i class="fas fa-bug me-2"></i>Trigger 500 Error
+                            </button>
+                            <a href="https://learn.microsoft.com/aspnet/core" class="btn btn-outline-primary" target="_blank">
+                                <i class="fas fa-graduation-cap me-2"></i>Explore Docs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="section-title">Application Features</h2>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                        </div>
+                        <h3>Fast & Secure</h3>
+                        <p class="text-muted">Built with ASP.NET Core for high performance and security</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
+                        </div>
+                        <h3>Cloud Ready</h3>
+                        <p class="text-muted">Optimized for Azure deployment and cloud scalability</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe fa-3x text-primary mb-3"></i>
+                        </div>
+                        <h3>Cross-Platform</h3>
+                        <p class="text-muted">Works seamlessly across Windows, Linux, and macOS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>About</h5>
+                    <p class="text-muted">A sample ASP.NET Core application demonstrating modern web development practices.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://learn.microsoft.com/aspnet/core" class="text-white text-decoration-none">ASP.NET Core Docs</a></li>
+                        <li><a href="/Privacy" class="text-white text-decoration-none">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <p class="mb-0 text-muted">&copy; @DateTime.Now.Year - ASP.NET Core Sample Application</p>
+        </div>
+    </footer>
+
+    <!-- Error Modal -->
+    <div class="modal fade" id="errorModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Trigger Error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Click the button below to trigger a server-side error (500 Internal Server Error).</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="/Trigger500" class="btn btn-danger">Trigger Error</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
